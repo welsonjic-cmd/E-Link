@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Master variables and base setup */
+@import url('variables.css');
+@import url('base.css');
+
+/* Layout structure */
+@import url('layouts/master.css');
+
+/* Reusable Components */
+@import url('components/cards.css');
+@import url('components/buttons.css');
+@import url('components/inputs.css');
+
+/* Feature Specific Modules */
+@import url('features/auth.css');
+@import url('features/profile.css');
+@import url('features/network.css');
+@import url('features/feed.css');
+@import url('features/chat.css');
+@import url('features/subscription.css');

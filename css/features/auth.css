@@ -1,0 +1,18 @@
+/* --- Auth Forms --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 600;
+}

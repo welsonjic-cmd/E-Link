@@ -1,0 +1,15 @@
+:root {
+    --bg-dark: #f0f2f5;
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-hover: #f1f5f9;
+    --accent: #00E5FF;
+    --accent-dark: #00b8cc;
+    --accent-text: #0284c7;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --text-dark: #0f172a;
+    --border-subtle: 1px solid #e2e8f0;
+    --border-radius: 12px;
+    --border-radius-lg: 16px;
+}

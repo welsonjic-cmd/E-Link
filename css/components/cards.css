@@ -1,0 +1,93 @@
+/* --- Cards --- */
+.card {
+    background: var(--bg-card);
+    border: var(--border-subtle);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.feed-widget {
+    margin-bottom: 16px;
+}
+
+.sticky-widget {
+    position: sticky;
+    top: 90px;
+}
+
+/* --- Right Sidebar Widgets --- */
+.widget-card {
+    padding: 20px;
+}
+
+.widget-title {
+    margin: 0 0 15px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: var(--border-subtle);
+    padding-bottom: 10px;
+}
+
+.news-list,
+.org-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.news-item a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 4px;
+    transition: color 0.2s;
+}
+
+.news-item a:hover {
+    color: var(--accent-text);
+}
+
+.news-meta {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.org-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.org-avatar {
+    width: 44px;
+    height: 44px;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 800;
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.org-details h4 {
+    margin: 0 0 2px 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.org-details span {
+    font-size: 12px;
+    color: #94a3b8;
+}

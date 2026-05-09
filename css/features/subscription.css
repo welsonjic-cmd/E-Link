@@ -1,0 +1,18 @@
+/* --- Subscriptions & Badges --- */
+.verified-badge { vertical-align: text-bottom; margin-left: 2px; }
+.profile-badge { vertical-align: text-bottom; margin-left: 4px; }
+.highlight-card { border: 2px solid var(--accent) !important; box-shadow: 0 10px 20px -5px rgba(0, 229, 255, 0.2) !important; background: linear-gradient(135deg, var(--bg-card), rgba(0, 229, 255, 0.03)) !important; }
+
+.sub-modal-wrapper { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); z-index: 2000; display: none; align-items: center; justify-content: center; }
+.sub-modal-card { background: var(--bg-card); width: 100%; max-width: 450px; border-radius: 16px; padding: 30px; border: 2px solid var(--accent); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 229, 255, 0.2); position: relative; }
+.sub-close { position: absolute; top: 15px; right: 15px; font-size: 20px; color: var(--text-muted); cursor: pointer; border: none; background: transparent; }
+.sub-close:hover { color: var(--text-main); }
+.sub-title { font-size: 24px; font-weight: 800; color: var(--text-main); text-align: center; margin: 0 0 10px 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.sub-subtitle { text-align: center; color: var(--text-muted); font-size: 15px; margin: 0 0 25px 0; }
+.sub-benefits { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
+.sub-benefit { display: flex; align-items: flex-start; gap: 12px; }
+.sub-benefit svg { flex-shrink: 0; color: var(--accent); margin-top: 2px; }
+.sub-benefit div h5 { margin: 0 0 3px 0; font-size: 15px; color: var(--text-main); }
+.sub-benefit div p { margin: 0; font-size: 13px; color: var(--text-muted); }
+.btn-premium { background: linear-gradient(90deg, var(--accent-text), var(--accent)); color: var(--text-dark); font-weight: 800; border: none; padding: 12px; width: 100%; border-radius: 8px; font-size: 16px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+.btn-premium:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 229, 255, 0.3); }
