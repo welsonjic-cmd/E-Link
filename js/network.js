@@ -334,26 +334,84 @@ function viewTeamProfile(teamName) {
         reqList.innerHTML = team.requirements.map(r => `<li>${r}</li>`).join('');
     }
 
-    // Apply button on detail page
+    // ── Primary row: Apply + Scrim ──
+    const primaryRow = document.querySelector('.team-actions-primary');
+    if (primaryRow) {
+        if (team.hasApplied) {
+            primaryRow.innerHTML = `
+                <button class="btn btn-pending team-action-main" disabled>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    Applied ✓
+                </button>
+                <button class="btn team-action-scrim" onclick="alert('Scrim proposed!')">⚔️ Challenge to Scrim</button>`;
+        } else {
+            primaryRow.innerHTML = `
+                <button class="btn btn-primary team-action-main" onclick="applyToTeam('${team.name}'); viewTeamProfile('${team.name}')">Apply Now</button>
+                <button class="btn team-action-scrim" onclick="alert('Scrim proposed!')">⚔️ Challenge to Scrim</button>`;
+        }
+    }
+
+    // ── Secondary row: Follow ──
     const applyArea = document.getElementById('view-team-apply-area');
     if (applyArea) {
-        if (team.hasApplied) {
-            applyArea.innerHTML = `
-                <button class="btn btn-pending" disabled>Applied ✓</button>
-                <button class="btn btn-primary" style="background:var(--text-dark);color:var(--text-main);border:1px solid var(--accent);" onclick="alert('Scrim proposed!')">⚔️ Challenge to Scrim</button>
-                <button class="btn btn-outline" onclick="alert('Followed Team!')">+ Follow</button>`;
+        applyArea.innerHTML = `<button class="btn btn-outline team-action-sm" onclick="alert('Followed Team!')">+ Follow</button>`;
+    }
+
+    // ── Subscribe area ──
+    const subscribeArea = document.getElementById('view-team-subscribe-area');
+    if (subscribeArea) {
+        if (team.isSubscribed) {
+            subscribeArea.innerHTML = `
+                <button class="btn btn-connected btn-sm" style="display:inline-flex;align-items:center;gap:6px;cursor:default;" disabled>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--accent)" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                    Subscribed
+                </button>
+                <span style="display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--accent);font-weight:700;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#00E5FF" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                    Verified Subscriber
+                </span>`;
         } else {
-            applyArea.innerHTML = `
-                <button class="btn btn-primary" onclick="applyToTeam('${team.name}'); viewTeamProfile('${team.name}')">Apply Now</button>
-                <button class="btn btn-primary" style="background:var(--text-dark);color:var(--text-main);border:1px solid var(--accent);" onclick="alert('Scrim proposed!')">⚔️ Challenge to Scrim</button>
-                <button class="btn btn-outline" onclick="alert('Followed Team!')">+ Follow</button>`;
+            subscribeArea.innerHTML = `
+                <button class="btn btn-primary btn-sm" style="display:inline-flex;align-items:center;gap:6px;"
+                    onclick="subscribeToTeam('${team.name}')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    Subscribe
+                </button>`;
         }
     }
 
     switchTab('teamdetail');
 }
 
-// ── Open Chat ─────────────────────────────────────────────────
+// ── Subscribe to Organization ─────────────────────────────
+function subscribeToTeam(teamName) {
+    const team = teams.find(t => t.name === teamName);
+    if (!team) return;
+
+    team.isSubscribed = true;
+
+    pushNotification(
+        team.avatar || team.avatarLetter,
+        `<strong>Subscribed to ${team.name}!</strong> You'll get notified of roster openings and updates.`,
+        'Just now'
+    );
+
+    // Re-render the subscribe area in place (no full page reload)
+    const subscribeArea = document.getElementById('view-team-subscribe-area');
+    if (subscribeArea) {
+        subscribeArea.innerHTML = `
+            <button class="btn btn-connected btn-sm" style="display:inline-flex;align-items:center;gap:6px;cursor:default;" disabled>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--accent)" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                Subscribed
+            </button>
+            <span class="org-verified-subscriber" style="display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--accent);font-weight:700;animation:verifiedPop 0.4s ease;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#00E5FF" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+                Verified Subscriber
+            </span>`;
+    }
+}
+
+
 function openChat(targetName) {
     const chatWidget  = document.getElementById('chat-widget');
     const chatTitle   = document.getElementById('chat-name');    // was: 'chat-widget-title'

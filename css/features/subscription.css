@@ -16,3 +16,14 @@
 .sub-benefit div p { margin: 0; font-size: 13px; color: var(--text-muted); }
 .btn-premium { background: linear-gradient(90deg, var(--accent-text), var(--accent)); color: var(--text-dark); font-weight: 800; border: none; padding: 12px; width: 100%; border-radius: 8px; font-size: 16px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
 .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 229, 255, 0.3); }
+
+/* --- Verified Subscriber Pop-in Animation --- */
+@keyframes verifiedPop {
+    0%   { opacity: 0; transform: scale(0.6); }
+    60%  { opacity: 1; transform: scale(1.12); }
+    80%  { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+.org-verified-subscriber {
+    animation: verifiedPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

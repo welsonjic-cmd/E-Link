@@ -11,6 +11,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
     white-space: nowrap;
 }
 
@@ -50,4 +51,83 @@
 
 .btn-outline:hover {
     background: rgba(0, 229, 255, 0.05);
+}
+
+/* ── Profile Page Action Buttons ───────────────────────────── */
+.prof-action-btn {
+    padding: 11px 22px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 22px;
+    min-width: 150px;
+    letter-spacing: 0.2px;
+}
+
+.prof-upgrade-btn {
+    background: linear-gradient(90deg, #00c6ff, #00e5ff);
+    color: #0f172a;
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 229, 255, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.prof-upgrade-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.prof-upgrade-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.prof-upgrade-btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+.prof-action-sm {
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 18px;
+    font-weight: 600;
+}
+
+/* ── Team Detail Action Buttons ────────────────────────────── */
+.team-action-main {
+    padding: 11px 28px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 22px;
+    min-width: 130px;
+    letter-spacing: 0.2px;
+}
+
+.team-action-scrim {
+    background: #0f172a;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 22px;
+    box-shadow: inset 0 0 0 0 var(--accent);
+    transition: all 0.25s ease;
+}
+
+.team-action-scrim:hover {
+    background: rgba(0, 229, 255, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.team-action-sm {
+    padding: 7px 16px;
+    font-size: 13px;
+    border-radius: 18px;
+    font-weight: 600;
 }

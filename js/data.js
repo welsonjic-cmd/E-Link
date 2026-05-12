@@ -64,7 +64,7 @@ let currentUser = {
     email: "gamer@elink.gg",
     accountType: "player",
     lft: false,
-    isVerified: true,
+    isVerified: false,
     postCount: 0,
     achievements: [],
     requirements: [],

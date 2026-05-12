@@ -28,6 +28,14 @@ function registerUser() {
         if (roleSelect) mainRole = roleSelect.value;
         mainBio = `Hi, I'm ${profileName}. I'm a ${mainRole} player specializing in ${mainGame}.`;
         mainLocation = 'Global';
+    } else if (accountType === 'coach') {
+        const cName = document.getElementById('reg-coachname')?.value;
+        if (cName) profileName = cName;
+        mainGame = document.getElementById('reg-coach-game')?.value || 'Valorant';
+        const expLevel = document.getElementById('reg-coach-exp')?.value || 'T2';
+        mainRole = `${expLevel} Coach`;
+        mainBio = `${profileName} is a ${expLevel}-level coach specializing in ${mainGame}. Experienced in VOD review, drafting, and player development.`;
+        mainLocation = 'Global';
     } else {
         const oName = document.getElementById('reg-orgname')?.value;
         if (oName) profileName = oName;

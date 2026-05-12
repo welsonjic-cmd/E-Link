@@ -48,13 +48,20 @@ function toggleRegFields() {
 
     const playerFields = document.getElementById('player-reg-fields');
     const orgFields = document.getElementById('org-reg-fields');
+    const coachFields = document.getElementById('coach-reg-fields');
 
+    // Hide all first
+    if (playerFields) playerFields.style.display = 'none';
+    if (orgFields) orgFields.style.display = 'none';
+    if (coachFields) coachFields.style.display = 'none';
+
+    // Show relevant section
     if (accountType === 'org') {
-        if (playerFields) playerFields.style.display = 'none';
         if (orgFields) orgFields.style.display = 'grid';
+    } else if (accountType === 'coach') {
+        if (coachFields) coachFields.style.display = 'grid';
     } else {
         if (playerFields) playerFields.style.display = 'grid';
-        if (orgFields) orgFields.style.display = 'none';
     }
 }
 
@@ -113,7 +120,7 @@ function setAccountType(type) {
         currentUser.avatar = "assets/org_logo.png";
         currentUser.avatarLetter = "T";
         currentUser.game = "Multiple Games";
-        currentUser.isVerified = true;
+        currentUser.isVerified = false;
         currentUser.bio = "We are a professional esports organization actively scouting talented players for our 2025 roster.";
         currentUser.rank = "N/A";
         currentUser.location = "North America";
@@ -126,7 +133,7 @@ function setAccountType(type) {
         currentUser.avatarLetter = "K";
         currentUser.game = "League of Legends";
         currentUser.lft = true;
-        currentUser.isVerified = true;
+        currentUser.isVerified = false;
         currentUser.postCount = 5;
         currentUser.bio = "Experienced head coach specializing in drafting, VOD review, and mental coaching. T2 certified with 4 years of competitive team management.";
         currentUser.rank = "T2 Certified";
@@ -140,7 +147,7 @@ function setAccountType(type) {
         currentUser.avatarLetter = "M";
         currentUser.game = "MLBB";
         currentUser.lft = false;
-        currentUser.isVerified = true;
+        currentUser.isVerified = false;
         currentUser.postCount = 0;
         currentUser.bio = "Dedicated Mid Laner looking to break into competitive play. Wide champion pool, strong communication, available for scrims 5 days a week.";
         currentUser.rank = "Mythical Glory";
